@@ -55,6 +55,9 @@ nav {
 }
 
 nav .logo {
+  position: relative;
+  width: 48px;
+  height: 48px;
   z-index: 1;
 }
 

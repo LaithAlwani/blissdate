@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { SignInButton, SignOutButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function Navbar() {
   return (
     <nav>
       <div className="logo">
-        <h3>Date Bliss</h3>
+        <Image src="/dating-128.png" fill/>
       </div>
       <SignedOut>
         <SignInButton className="btn" />

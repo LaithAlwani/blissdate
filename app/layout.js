@@ -11,15 +11,12 @@ export const metadata = {
   generator: "Next.js",
   manifest: "/manifest.json",
   keywords: ["nextjs", "next14", "pwa", "next-pwa","dating"],
-  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#fff" }],
   authors: [
     {
       name: "Laith Alwani",
       url: "https://www.linkedin.com/in/laith-alwani/",
     },
   ],
-  viewport:
-    "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
   icons: [
     { rel: "apple-touch-icon", url: "/dating-128.png" },
     { rel: "icon", url: "/dating-128.png" },
