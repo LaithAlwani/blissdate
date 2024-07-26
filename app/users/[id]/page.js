@@ -2,7 +2,7 @@
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
-export default function page() {
+export default function UserPage() {
   const { user } = useUser();
   const [currentUser, setCurrentUser] = useState();
 
@@ -29,8 +29,8 @@ export default function page() {
         <p>{currentUser.email}</p>
         <span>{currentUser.clerk_id}</span>
         <h3>images</h3>
-        {currentUser.images.map((img) => (
-          <img src={img} />
+        {currentUser.images.map((img, i) => (
+          <img key={i} src={img} />
         ))}
         <button className="btn">Add more</button>
       </div>
