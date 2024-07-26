@@ -18,7 +18,7 @@ const userSchema = new Schema(
     last_name: String,
     images: Array,
     avatar: String,
-    liked: [
+    likes: [
       {
         type: Schema.Types.ObjectId,
         ref: "User",

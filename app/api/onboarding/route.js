@@ -1,6 +1,12 @@
 import connectToDB from "@/utils/database";
+import { NextResponse } from "next/server";
 
 
+export const GET = async () => {
+  
+    return NextResponse.json({ message: `Working` }, { status: 201 });
+  
+};
 export const POST = async (req) => {
   const { firstName, lastName, username, images, about } = await req.json();
   try {
