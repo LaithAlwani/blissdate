@@ -62,6 +62,9 @@ export async function POST(req) {
   if (evt.type === "user.created") {
     createUser(evt.data);
   }
+  if (evt.type === "user.created") {
+    createUser(evt.data);
+  }
 
   return NextResponse.json("", { status: 200 });
 }

@@ -1,7 +1,14 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { SignInButton, SignOutButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignOutButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -35,9 +42,12 @@ export default function Navbar() {
 }
 
 const NavLinks = () => {
+  const { user } = useUser();
+
   return (
     <>
       <ActiveLink name="Home" path="/" />
+      {user && <ActiveLink name="Profile" path={`/users/${user.id}`} />}
       <ActiveLink name="Dashboard" path="/dashboard" />
       <ActiveLink name="Chats" path="/chats" />
       <ActiveLink name="About" path="/about" />
