@@ -11,7 +11,9 @@ export default function Navbar() {
   return (
     <nav>
       <div className="logo">
-        <Image src="/dating-128.png" fill/>
+        <Link href="/">
+          <Image src="/dating-128.png" fill />
+        </Link>
       </div>
       <SignedOut>
         <SignInButton className="btn" />
@@ -47,7 +49,7 @@ const NavLinks = () => {
 const ActiveLink = ({ name, path }) => {
   const pathname = usePathname();
   const active = pathname === path ? "active" : "";
-  
+
   return (
     <Link href={path} className={`${active}`}>
       {name}

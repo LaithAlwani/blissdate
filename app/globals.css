@@ -1,13 +1,22 @@
 :root {
-  --border-radius:0.25rem;
+  --border-radius: 0.25rem;
   --light-green: #5c8f32;
   --red: #f14a4f;
-  --light-red:#c86e71;
+  --light-red: #c86e71;
+
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 60, 60, 60;
+    --background-end-rgb: 0, 0, 0;
+  }
+  html {
+    color-scheme: dark;
   }
 }
 
@@ -21,9 +30,13 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+    rgb(var(--background-start-rgb));
+    min-height: 100vh;
 }
 
-main{
+main {
   max-width: 62rem;
   margin-inline: auto;
   padding: 1rem;
@@ -34,7 +47,8 @@ a {
   text-decoration: none;
 }
 input,
-select, textarea{
+select,
+textarea {
   width: 100%;
   padding: 1rem;
   border: 1px solid;
@@ -82,7 +96,7 @@ nav .burger-icon {
   height: 0.1rem;
   border-radius: 0.5rem;
   transition: transform 0.5s ease-in-out;
-  background-color: #333;
+  background-color: rgb(var(--foreground-rgb));
 }
 
 nav .burger-icon::before,
@@ -93,7 +107,7 @@ nav .burger-icon::after {
   width: 100%;
   height: 0.1rem;
   border-radius: 0.5rem;
-  background-color: #333;
+  background-color: rgb(var(--foreground-rgb));
   transition: transform 0.25s ease-in-out;
 }
 
@@ -125,7 +139,7 @@ nav .sidebar {
   width: 0;
   height: 100vh;
   padding-top: 4rem;
-  background-color: #f3f3f3;
+  background-color: rgb(var(--background-end-rgb));
   overflow: hidden;
   transition: width 0.2s ease-in-out;
 }
@@ -149,29 +163,24 @@ nav .active {
   font-weight: bold;
 }
 
-.btn{
+.btn {
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   border: none;
   background-color: var(--red);
   color: white;
+  font-weight: bold;
   cursor: pointer;
 }
 
 .btn:hover,
-.btn:focus{
+.btn:focus {
   background-color: var(--light-red);
 }
 
-@media only screen and (min-width:768px) {
-  nav .sidebar.open{
+@media only screen and (min-width: 768px) {
+  nav .sidebar.open {
     width: 14rem;
     border-left: 1px solid #333;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
   }
 }
