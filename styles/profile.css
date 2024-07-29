@@ -1,0 +1,29 @@
+.profile{
+  
+}
+
+.profile .avatar{
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+
+.profile .img-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  padding-block-start: 1rem;
+}
+
+.profile .img-list button {
+  background-color: lightgray;
+  min-width: 16rem;
+  max-width: 16rem;
+  color: #333;
+}
+.profile .img-list button:hover {
+  background-color: rgb(180, 180, 180);
+}

@@ -33,7 +33,7 @@ body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 main {
@@ -72,7 +72,7 @@ nav .logo {
   position: relative;
   width: 48px;
   height: 48px;
-  z-index: 1;
+  z-index: 2 ;
 }
 
 nav .nav-links {
@@ -87,7 +87,7 @@ nav .mobile-nav-btn {
   display: flex;
   align-items: center;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
 }
 
 nav .burger-icon {
@@ -142,6 +142,7 @@ nav .sidebar {
   background-color: rgb(var(--background-end-rgb));
   overflow: hidden;
   transition: width 0.2s ease-in-out;
+  z-index: 1;
 }
 
 nav .sidebar.open {
@@ -162,6 +163,26 @@ nav .sidebar .nav-links > * {
 nav .active {
   font-weight: bold;
 }
+.modle{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(var(--background-start-rgb));
+}
+.fixed{
+position: fixed;
+top: 5rem;
+}
+
+.right{
+  right: 1rem;
+}
 
 .btn {
   padding: 0.5rem 1rem;
@@ -176,6 +197,25 @@ nav .active {
 .btn:hover,
 .btn:focus {
   background-color: var(--light-red);
+}
+
+.btn-trasparent,
+.btn-trasparent:hover{
+  background: transparent;
+}
+
+
+.img-wrapper {
+  position: relative;
+  height: 18rem;
+}
+
+.img-wrapper img {
+  display: block;
+  width: 16rem;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
 }
 
 @media only screen and (min-width: 768px) {
