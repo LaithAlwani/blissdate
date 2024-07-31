@@ -11,6 +11,7 @@ import {
 } from "@clerk/nextjs";
 import { useState } from "react";
 import Image from "next/image";
+import { useAppContext } from "@/lib/context";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,11 +44,12 @@ export default function Navbar() {
 
 const NavLinks = () => {
   const { user } = useUser();
+  const {currentUser} = useAppContext()
 
   return (
     <>
       <ActiveLink name="Home" path="/" />
-      {user && <ActiveLink name="Profile" path={`/users/${user.id}`} />}
+      {currentUser && <ActiveLink name="Profile" path={`/users/${currentUser._id}`} />}
       <ActiveLink name="Dashboard" path="/dashboard" />
       <ActiveLink name="Chats" path="/chats" />
       <ActiveLink name="About" path="/about" />

@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export const GET = async (req, context) => {
   const { params } = context;
   const userId = params.id;
-  console.log(userId);
+  
   try {
     await connectToDB();
     const user = await User.findOne({ clerk_id: userId });

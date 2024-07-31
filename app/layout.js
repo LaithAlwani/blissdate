@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
+import { AppWrapper } from "@/lib/context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,7 +11,7 @@ export const metadata = {
   description: "The new way to find a partner!",
   generator: "Next.js",
   manifest: "/manifest.json",
-  keywords: ["nextjs", "next14", "pwa", "next-pwa","dating"],
+  keywords: ["nextjs", "next14", "pwa", "next-pwa", "dating"],
   authors: [
     {
       name: "Laith Alwani",
@@ -28,8 +29,10 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <Navbar />
-          <main>{children}</main>
+          <AppWrapper>
+            <Navbar />
+            <main>{children}</main>
+          </AppWrapper>
         </body>
       </html>
     </ClerkProvider>

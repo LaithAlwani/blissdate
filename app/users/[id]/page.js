@@ -7,11 +7,12 @@ import { RiImageAddLine } from "react-icons/ri";
 import { MdVerified, MdClose } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { useAppContext } from "@/lib/context";
 
 export default function UserPage() {
   const { user } = useUser();
   const inputRef = useRef();
-  const [currentUser, setCurrentUser] = useState();
+  const {currentUser, setCurrentUser }= useAppContext();
   const [toggleEditModle, setToggleEditModle] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -31,9 +32,9 @@ export default function UserPage() {
     }
   };
 
-  useEffect(() => {
-    user && getCurrentUser(user.id);
-  }, [user]);
+  // useEffect(() => {
+  //   user && getCurrentUser(user.id);
+  // }, [user]);
 
   return !loading ? (
     currentUser && (
