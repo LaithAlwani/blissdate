@@ -62,16 +62,12 @@ export async function POST(req) {
   if (evt.type === "user.created") {
     createUser(evt.data);
   }
-  if (evt.type === "user.created") {
-    createUser(evt.data);
-  }
 
   return NextResponse.json("", { status: 200 });
 }
 
 const createUser = async (eventData) => {
   const { id, ...attributes } = eventData;
-  console.log(eventData.attributes);
   const { email_addresses, first_name, last_name, profile_image_url } = attributes;
   const newUser = {
     clerk_id: id,

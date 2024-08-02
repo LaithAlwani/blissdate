@@ -1,7 +1,5 @@
 "use client";
-import { useUser } from "@clerk/nextjs";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "@/styles/profile.css";
 import { RiImageAddLine } from "react-icons/ri";
 import { MdVerified, MdClose } from "react-icons/md";
@@ -9,34 +7,13 @@ import { FaUserEdit } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useAppContext } from "@/lib/context";
 
-export default function UserPage() {
-  const { user } = useUser();
+export default function UserPage() { 
   const inputRef = useRef();
-  const {currentUser, setCurrentUser }= useAppContext();
+  const { currentUser, setCurrentUser } = useAppContext();
   const [toggleEditModle, setToggleEditModle] = useState(false);
-  const [loading, setLoading] = useState(false);
+  
 
-  const getCurrentUser = async (userId) => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/user/${userId}`);
-      if (res.ok) {
-        const data = await res.json();
-        setCurrentUser(data.user);
-        console.log(data);
-      }
-    } catch (err) {
-      toast.error(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // useEffect(() => {
-  //   user && getCurrentUser(user.id);
-  // }, [user]);
-
-  return !loading ? (
+  return (
     currentUser && (
       <section className="profile">
         <button
@@ -71,8 +48,6 @@ export default function UserPage() {
         )}
       </section>
     )
-  ) : (
-    <h3>Loading...</h3>
   );
 }
 
@@ -85,10 +60,10 @@ const EditUser = ({ user, setToggleEditModle, setCurrentUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`/api/user/${user.clerk_id}/update`, {
+
+    const res = await fetch(`/api/user/${user._id}/update`, {
       method: "POST",
       body: JSON.stringify({
-        clerk_id: user.clerk_id,
         username: changedUsername,
         first_name: changedFirstName,
         last_name: changedLastName,
@@ -96,12 +71,12 @@ const EditUser = ({ user, setToggleEditModle, setCurrentUser }) => {
     });
     if (res.ok) {
       const data = await res.json();
-      console.log(data.user)
       setCurrentUser(data.user);
       toast.success(data.message);
       setToggleEditModle(false);
     }
   };
+
   return (
     <section className="modle">
       <button onClick={() => setToggleEditModle(false)} className="btn btn-trasparent fixed right">

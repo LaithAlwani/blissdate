@@ -3,6 +3,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import { AppWrapper } from "@/lib/context";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={inter.className}>
           <AppWrapper>
+            <Toaster />
             <Navbar />
             <main>{children}</main>
           </AppWrapper>

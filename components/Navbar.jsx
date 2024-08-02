@@ -43,7 +43,6 @@ export default function Navbar() {
 }
 
 const NavLinks = () => {
-  const { user } = useUser();
   const {currentUser} = useAppContext()
 
   return (
