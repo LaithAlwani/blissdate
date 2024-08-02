@@ -6,6 +6,7 @@ import { MdVerified, MdClose } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useAppContext } from "@/lib/context";
+import Image from "next/image";
 
 export default function UserPage() { 
   const inputRef = useRef();
@@ -31,7 +32,7 @@ export default function UserPage() {
         <div className="img-list">
           {currentUser.images.map((img, i) => (
             <div key={i} className="img-wrapper">
-              <img src={img} />
+              <Image src={img} fill />
             </div>
           ))}
           <input type="file" hidden ref={inputRef} />

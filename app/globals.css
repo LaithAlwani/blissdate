@@ -207,13 +207,13 @@ top: 5rem;
 
 .img-wrapper {
   position: relative;
-  height: 18rem;
+  min-width: 18rem;
+  height: 20rem;
 }
 
 .img-wrapper img {
   display: block;
-  width: 16rem;
-  height: 100%;
+  
   object-fit: cover;
   border-radius: 0.25rem;
 }
