@@ -8,11 +8,10 @@ import toast from "react-hot-toast";
 import { useAppContext } from "@/lib/context";
 import Image from "next/image";
 
-export default function UserPage() { 
+export default function UserPage() {
   const inputRef = useRef();
   const { currentUser, setCurrentUser } = useAppContext();
   const [toggleEditModle, setToggleEditModle] = useState(false);
-  
 
   return (
     currentUser && (
@@ -20,13 +19,16 @@ export default function UserPage() {
         <button
           className="btn btn-trasparent fixed right"
           onClick={() => setToggleEditModle(!toggleEditModle)}>
-          <FaUserEdit size={24} color="#f14a4f" />
+          <FaUserEdit size={32} color="#f14a4f" />
         </button>
         <img src={currentUser.avatar} alt="" className="avatar" />
-        <h3>{currentUser.username || ""}</h3>
+        <h3>
+          {currentUser.username || ""}
+          {currentUser.verified && <MdVerified color="blue" />}
+        </h3>
+
         <h3>
           {currentUser.first_name} {currentUser.last_name}{" "}
-          {currentUser.verified && <MdVerified color="blue" />}
         </h3>
         <h4>{currentUser.email}</h4>
         <div className="img-list">
@@ -80,10 +82,10 @@ const EditUser = ({ user, setToggleEditModle, setCurrentUser }) => {
 
   return (
     <section className="modle">
-      <button onClick={() => setToggleEditModle(false)} className="btn btn-trasparent fixed right">
-        <MdClose size={32} color="#f14a4f" />
-      </button>
       <form onSubmit={handleSubmit}>
+        <span onClick={() => setToggleEditModle(false)} className=" float-right">
+          <MdClose size={32} color="#f14a4f" />
+        </span>
         <input
           type="text"
           value={changedUsername}
