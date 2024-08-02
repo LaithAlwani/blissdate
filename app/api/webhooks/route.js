@@ -80,7 +80,10 @@ const createUser = async (eventData) => {
   };
   try {
     await connectToDB();
-    await User.create(newUser);
+    const user = await User.findOne({ clerk_id: id });
+    if (!user) {
+      await User.create(newUser);
+    }
     return NextResponse.json({ message: "user created", user }, { status: 200 });
   } catch (err) {
     return NextResponse.json("Error occured", {
