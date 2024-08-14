@@ -6,5 +6,13 @@ import { SignInButton } from "@clerk/nextjs";
 export default function Home() {
   const { currentUser } = useAppContext();
 
-  return <>{currentUser ? <h1>{currentUser.username}</h1> : <SignInButton className="btn" />}</>;
+  return (
+    <>
+      {currentUser ? (
+        <h1>{currentUser.username || currentUser.first_name}</h1>
+      ) : (
+        <SignInButton className="btn" />
+      )}
+    </>
+  );
 }
