@@ -1,14 +1,10 @@
-'use client'
+"use client";
 import { useAppContext } from "@/lib/context";
 import styles from "./page.module.css";
-
+import { SignInButton } from "@clerk/nextjs";
 
 export default function Home() {
-  const {currentUser} = useAppContext();
-  
-  return (
-    <>
-      <h1>{currentUser && currentUser.username}</h1>
-    </>
-  );
+  const { currentUser } = useAppContext();
+
+  return <>{currentUser ? <h1>{currentUser.username}</h1> : <SignInButton className="btn" />}</>;
 }

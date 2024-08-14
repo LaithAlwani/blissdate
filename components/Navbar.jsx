@@ -48,7 +48,7 @@ const NavLinks = () => {
   return (
     <>
       <ActiveLink name="Home" path="/" />
-      {currentUser && <ActiveLink name="Profile" path={`/users/${currentUser._id}`} />}
+      <ActiveLink name="Profile" path={`/users/${currentUser?._id}`} />
       <ActiveLink name="Dashboard" path="/dashboard" />
       <ActiveLink name="Chats" path="/chats" />
       <ActiveLink name="About" path="/about" />
