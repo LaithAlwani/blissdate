@@ -16,6 +16,7 @@
   justify-content: flex-start;
   overflow-x: scroll;
   padding-block-start: 1rem;
+  min-height: 20rem;
 }
 
 .profile .img-list button {
