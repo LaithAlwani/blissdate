@@ -21,7 +21,7 @@ export default function UserPage() {
           onClick={() => setToggleEditModle(!toggleEditModle)}>
           <FaUserEdit size={32} color="#f14a4f" />
         </button>
-        <img src={currentUser.avatar} alt="" className="avatar" />
+        <img src={currentUser.avatar} alt="avatar" className="avatar" />
         <h3>
           {currentUser.username || ""}
           {currentUser.verified && <MdVerified color="blue" />}
